@@ -1,0 +1,36 @@
+---
+title: "simpleRegression"
+author: "JeremiShane"
+date: "10/6/2017"
+output: html_document
+---
+
+## R Markdown
+
+This is a R Markdown file with a simple regression model using air quality data.
+
+First, we are going to load some data.
+
+```{r}
+library(datasets)
+data(airquality)
+summary(airquality)
+```
+
+Now, to make a pairs plot to explore the data.
+
+```{r}
+pairs(airquality)
+```
+
+Here is a regression model of ozone on wind, solar radiation and temperature.
+
+```{r}
+library(stats)
+fit <- lm(Ozone ~ Wind + Solar.R + Temp, data=airquality)
+summary(fit)
+```
+
+```{r}
+plot(fit)
+```
